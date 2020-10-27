@@ -22,11 +22,3 @@ if (bmiMark > bmiJohn) {
 } else {
   console.log(`John's BMI is higher than Mark's`);
 }
-
-/* console.log(`Marks weights ${markMass}kg and is ${markHeight}m tall`);
-console.log(`John weights ${johnMass}kg and is ${johnHeight}m tall`);
-
-console.log(bmiMark.toFixed(2), bmiJohn.toFixed(2));
-
-console.log(markHigherBMI);
- */
