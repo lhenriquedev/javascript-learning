@@ -101,5 +101,31 @@ const yearsUntilRetirement = (birthYear, firstName) => {
   // return `${firstName} retires in ${retirement} years.`;
 };
 
-console.log(yearsUntilRetirement(2001, 'Camila'));
-console.log(yearsUntilRetirement(1950, 'Mike'));
+// console.log(yearsUntilRetirement(2001, 'Camila'));
+// console.log(yearsUntilRetirement(1950, 'Mike'));
+
+/* Arrays */
+const friends = ['Pedro', 'Camila', 'Mustashe'];
+const henrique = ['Henrique', 'Marques', 2020 - 2000, 'Intern', friends];
+// console.log(friends[friends.length - 1]); // last item
+// console.log(henrique);
+
+// Exercise
+const calcAgeNew = (birthYear) => 2037 - birthYear;
+
+const ages = [];
+const years = [1990, 1965, 2002, 2010, 2020];
+const a1 = calcAgeNew(years[0]);
+const a2 = calcAgeNew(years[1]);
+const a3 = calcAgeNew(years[years.length - 1]);
+
+console.log(a1, a2, a3);
+
+// Methods
+ages.push(a1, a2, a3);
+ages.pop();
+
+// console.log(ages.indexOf(47));
+
+// Return true or false;
+console.log(ages.includes(47));
