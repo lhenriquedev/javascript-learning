@@ -119,7 +119,7 @@ const a1 = calcAgeNew(years[0]);
 const a2 = calcAgeNew(years[1]);
 const a3 = calcAgeNew(years[years.length - 1]);
 
-console.log(a1, a2, a3);
+// console.log(a1, a2, a3);
 
 // Methods
 ages.push(a1, a2, a3);
@@ -128,4 +128,34 @@ ages.pop();
 // console.log(ages.indexOf(47));
 
 // Return true or false;
-console.log(ages.includes(47));
+// console.log(ages.includes(47));
+
+// Objects
+const camila = {
+  firstName: 'Camila',
+  lastName: 'Nascente',
+  age: 2020 - 2001,
+  job: 'Intern',
+  relationship: true,
+  friends: ['Gabi', 'Maira', 'Kelly'],
+};
+console.log(camila);
+
+const nameKey = 'Name';
+console.log(camila['first' + nameKey]);
+
+// const interestedIn = prompt(
+//   'What do you want to know about Camila? Choose between firstName, lastName, age, job and friends'
+// );
+
+// if (camila[interestedIn]) console.log(camila[interestedIn]);
+
+camila.location = 'Butiá - RS';
+camila['twitter'] = '@sideloka';
+// console.log(camila[interestedIn]);
+
+// Challenge
+// "Jonas has 3 friends, and his best friend is called Michael"
+console.log(
+  `${camila.firstName} has ${camila.friends.length} friends, and her best friend is called ${camila.friends[0]}`
+);
