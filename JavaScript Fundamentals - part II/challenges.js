@@ -44,37 +44,65 @@
 
 // Coding Challenge #3
 
-const mark = {
-  fullName: 'Mark Miller',
-  mass: 78,
-  height: 1.69,
+// const mark = {
+//   fullName: 'Mark Miller',
+//   mass: 78,
+//   height: 1.69,
 
-  calcBMI() {
-    this.bmi = this.mass / this.height ** 2;
-    return `
-      ${this.fullName} BMI (${this.bmi.toFixed(2)})
-    `;
-  },
+//   calcBMI() {
+//     this.bmi = this.mass / this.height ** 2;
+//     return `
+//       ${this.fullName} BMI (${this.bmi.toFixed(2)})
+//     `;
+//   },
+// };
+
+// const john = {
+//   fullName: 'John Miller',
+//   mass: 92,
+//   height: 1.95,
+
+//   calcBMI() {
+//     this.bmi = this.mass / this.height ** 2;
+//     return `
+//       ${this.fullName} BMI (${this.bmi.toFixed(2)})
+//     `;
+//   },
+// };
+
+// console.log(mark.calcBMI());
+// console.log(john.calcBMI());
+
+// if (mark.bmi > john.bmi) {
+//   console.log(`Mark's BMI ${mark.bmi} is higher than John's (${john.bmi})`);
+// } else {
+//   console.log(`John's BMI ${john.bmi} is higher than Mark's (${mark.bmi})`);
+// }
+
+const calcTip = (bill) => {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 };
 
-const john = {
-  fullName: 'John Miller',
-  mass: 92,
-  height: 1.95,
-
-  calcBMI() {
-    this.bmi = this.mass / this.height ** 2;
-    return `
-      ${this.fullName} BMI (${this.bmi.toFixed(2)})
-    `;
-  },
+const calcAverage = (arr) => {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    sum += arr[i];
+  }
+  return sum / arr.length;
 };
 
-console.log(mark.calcBMI());
-console.log(john.calcBMI());
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 
-if (mark.bmi > john.bmi) {
-  console.log(`Mark's BMI ${mark.bmi} is higher than John's (${john.bmi})`);
-} else {
-  console.log(`John's BMI ${john.bmi} is higher than Mark's (${mark.bmi})`);
+const tips = [];
+const total = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  total.push(tip + bills[i]);
 }
+
+// console.log(tips);
+// console.log(total);
+console.log(calcAverage(total));
+console.log(calcAverage(tips));
