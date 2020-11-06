@@ -30,14 +30,51 @@
 
 // Coding Challenge #2
 
-const calcTip = (bill) => {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-};
+// const calcTip = (bill) => {
+//   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+// };
 
-const bills = [125, 555, 44];
+// const bills = [125, 555, 44];
 
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])];
 
-const total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
+// const total = [tips[0] + bills[0], tips[1] + bills[1], tips[2] + bills[2]];
 
 // console.log(total);
+
+// Coding Challenge #3
+
+const mark = {
+  fullName: 'Mark Miller',
+  mass: 78,
+  height: 1.69,
+
+  calcBMI() {
+    this.bmi = this.mass / this.height ** 2;
+    return `
+      ${this.fullName} BMI (${this.bmi.toFixed(2)})
+    `;
+  },
+};
+
+const john = {
+  fullName: 'John Miller',
+  mass: 92,
+  height: 1.95,
+
+  calcBMI() {
+    this.bmi = this.mass / this.height ** 2;
+    return `
+      ${this.fullName} BMI (${this.bmi.toFixed(2)})
+    `;
+  },
+};
+
+console.log(mark.calcBMI());
+console.log(john.calcBMI());
+
+if (mark.bmi > john.bmi) {
+  console.log(`Mark's BMI ${mark.bmi} is higher than John's (${john.bmi})`);
+} else {
+  console.log(`John's BMI ${john.bmi} is higher than Mark's (${mark.bmi})`);
+}
