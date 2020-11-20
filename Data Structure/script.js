@@ -41,6 +41,11 @@ const restaurant = {
   orderPasta: function (ing1, ing2, ing3) {
     console.log(`Here is your delicious pasta with: ${ing1}, ${ing2}, ${ing3}`);
   },
+
+  orderPizza: function (mainIngredient, ...otherIngredient) {
+    console.log(mainIngredient);
+    console.log(otherIngredient);
+  },
 };
 
 restaurant.orderDelivery({
@@ -54,6 +59,9 @@ restaurant.orderDelivery({
   address: 'Rua do Comércio, 631',
   starterIndex: 2,
 });
+
+restaurant.orderPizza('mushrooms', 'onion', 'olives', 'tomato');
+restaurant.orderPizza('tomato');
 
 let [main, , secondary] = restaurant.categories;
 
@@ -151,3 +159,40 @@ const restaurantCopy = { ...restaurant };
 restaurantCopy.name = 'Butequinho dos gugu';
 console.log(restaurant.name);
 console.log(restaurantCopy.name);
+
+// Rest pattern and Parameters
+
+// 1) DESTRUCTURING
+
+// SPREAD, because on RIGHT side
+const arr1 = [1, 2, 3, ...[3, 4]];
+
+// REST
+const [h, l, ...others] = [12, 13, 14, 15];
+console.log(h, l, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risotto, otherFood);
+
+// Objects
+const { sat, ...weekdays } = restaurant.openingHours;
+console.log(sat, weekdays);
+
+// 2) FUNCTIONS
+const add = (...numbers) => {
+  let sum = 0;
+  for (let i = 0; i < numbers.length; i++) {
+    sum += numbers[i];
+  }
+  console.log(sum);
+};
+
+add(2, 3);
+add(5, 3, 7, 2);
+
+const x = [23, 6, 7, 8, 12];
+add(...x);
