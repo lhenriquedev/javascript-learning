@@ -229,3 +229,33 @@ for (const item of menu) {
 for (const [i, el] of menu.entries()) {
   console.log(`${i + 1} - ${el}`);
 }
+
+// Optional Chaining (.?)
+
+// with optional chaining
+// console.log(restaurant.openingHours.mon?.open);
+
+// real example
+const days = ["mon", "tue", "wed", "thu", "thu", "fri", "sat", "sun"];
+
+for (const day of days) {
+  const open = restaurant.openingHours[day]?.open ?? "closed";
+  console.log(`On ${day}, we open at ${open}`);
+}
+
+// Methods
+console.log(restaurant.order?.(0, 1) ?? "Method does not exist");
+
+// arrays
+
+const users = [{ name: "Henrique", email: "hello@henrique.io" }];
+
+// new method on arrays
+console.log(users[0]?.name ?? "User does not exist");
+
+// old method
+if (users.length > 0) {
+  console.log(users[0].name);
+} else {
+  console.log("user does not exist");
+}
