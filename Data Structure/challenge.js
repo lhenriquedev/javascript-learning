@@ -61,3 +61,24 @@ const game = {
 // // printGoals('Davies', 'Muller');
 
 // team1 < team2 && console.log('Team1 is more likely to win.');
+
+// 1) Loop over the game.scored array and print each player name to the console✅
+const scored = [...game.scored];
+
+for (const [i, player] of scored.entries()) {
+  console.log(`Goals ${i + 1}: ${player}`);
+}
+
+// 2) Use a loop to calculate the average odd and log it to the console
+const odds = Object.values(game.odds);
+let average = 0;
+for (const odd of odds) average += odd;
+
+average /= odds.length;
+console.log(average);
+
+// 3)
+for (const [team, odd] of Object.entries(game.odds)) {
+  const teamStr = team === "x" ? "draw" : `victory ${game[team]}`;
+  console.log(`Odd of victory ${teamStr}: ${odd}`);
+}
