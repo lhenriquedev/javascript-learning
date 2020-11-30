@@ -282,3 +282,48 @@
 // for (const [day, { open, close }] of entries) {
 //   console.log(`On ${day} we open  at ${open} and close at ${close}`);
 // }
+
+const question = new Map([
+  ["question", "What is the best programming language in the world?"],
+  [1, "C"],
+  [2, "Java"],
+  [3, "JavaScriot"],
+  ["correct", 3],
+  [true, "Correct :)"],
+  [false, "Try again!"],
+]);
+
+// Quiz app
+console.log(question.get("question"));
+for (const [key, value] of question) {
+  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+}
+
+const answer = Number(prompt("Your answer?"));
+
+console.log(question.get(question.get("correct") === answer));
+
+// convert map to array
+console.log([...question]);
+
+// const ordersSet = new Set([
+//   "Pasta",
+//   "Pizza",
+//   "Pizza",
+//   "Risotto",
+//   "Pasta",
+//   "Pizza",
+// ]);
+
+// console.log(ordersSet);
+// console.log(ordersSet.size);
+// ordersSet.has("Pizza");
+// ordersSet.has("Bread");
+// console.log(ordersSet.add("Garlic Bread"));
+
+// for (const order of ordersSet) console.log(order);
+
+// // Example
+// const staff = ["Waiter", "Chef", "Waiter", "Manager", "Chef", "Waiter"];
+// const staffUnique = [...new Set(staff)];
+// console.log(staffUnique);
