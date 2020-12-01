@@ -294,17 +294,17 @@ const question = new Map([
 ]);
 
 // Quiz app
-console.log(question.get("question"));
+// console.log(question.get("question"));
 for (const [key, value] of question) {
-  if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
+  // if (typeof key === "number") console.log(`Answer ${key}: ${value}`);
 }
 
-const answer = Number(prompt("Your answer?"));
+const answer = 3;
 
-console.log(question.get(question.get("correct") === answer));
+// console.log(question.get(question.get("correct") === answer));
 
-// convert map to array
-console.log([...question]);
+// // convert map to array
+// console.log([...question]);
 
 // const ordersSet = new Set([
 //   "Pasta",
