@@ -385,4 +385,5 @@ console.log(email === nomarlizedEmail);
 
 // replacing
 const priceReal = "400,89£";
-const priceUS = priceReal.replace(, replaceValue)
+const priceUS = priceReal.replace("£", "$").replace(",", ".");
+console.log(priceUS);
