@@ -387,3 +387,80 @@ console.log(email === nomarlizedEmail);
 const priceReal = "400,89£";
 const priceUS = priceReal.replace("£", "$").replace(",", ".");
 console.log(priceUS);
+
+const announcement =
+  "All passenger come to boarding door 23. Boarding door 23!";
+
+console.log(announcement.replace("door", "gate"));
+
+console.log(announcement.replace(/door/g, "gate"));
+
+// Booleans - includes - startsWith
+const airplane = "Airbus A320neo";
+
+console.log(airplane.includes("A320"));
+console.log(airplane.startsWith("Airb"));
+
+if (airplane.startsWith("Airbus") && airplane.endsWith("neo")) {
+  console.log("Part of the NEW Airbus family");
+}
+
+// Practice exerice
+const checkBaggage = (items) => {
+  const baggage = items.toLowerCase();
+
+  if (baggage.includes("knife") || baggage.includes("gun")) {
+    console.log("You are NOT allowed on board");
+  } else {
+    console.log("Welcome aboard!");
+  }
+};
+
+checkBaggage("I have a laptop, some food, and a pocket Knife");
+checkBaggage("Socks and camera");
+checkBaggage("Got some snacks and a gun for protection");
+
+// SPLIT AND JOIN
+console.log("a+very+nice+string".split("+"));
+const [firstName, lastName] = "Henrique Marques".split(" ");
+
+const newName = ["Mr.", firstName, lastName.toUpperCase()].join(" ");
+console.log(newName);
+
+const capitalizeName = (name) => {
+  const names = name.split(" ");
+  const namesUpper = [];
+
+  for (const n of names) {
+    // namesUpper.push(n[0].toUpperCase() + n.slice(1));
+
+    namesUpper.push(n.replace(n[0], n[0].toUpperCase()));
+  }
+  console.log(namesUpper.join(" "));
+};
+
+capitalizeName("jessica ann smith davis");
+capitalizeName("pedro pacheco dos santos");
+
+// Padding
+const message = "Go to gate 23!";
+console.log(message.padStart(25, "+").padEnd(35, "+"));
+
+// Credit card masking
+const maskCreditCard = (number) => {
+  const str = number + "";
+  const last = str.slice(-4);
+
+  return last.padStart(str.length, "*");
+};
+
+console.log(maskCreditCard(4343943944912391));
+console.log(maskCreditCard("334824723482342"));
+
+// Repeat
+const message2 = "Bad weather... All Departues delayed...";
+console.log(message2.repeat(5));
+
+const planesInLine = (n) => {
+  console.log(`There are ${n} planes in line planes`);
+};
