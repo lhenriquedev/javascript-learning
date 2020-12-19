@@ -124,11 +124,7 @@ const balance = movements.reduce((acc, cur) => acc + cur, 0);
 
 // maximum value
 const max = movements.reduce((acc, mov) => {
-  if (acc > mov) {
-    return acc;
-  } else {
-    return mov;
-  }
+  return acc > mov ? acc : mov;
 }, movements[0]);
 
 console.log(max);
