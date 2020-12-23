@@ -46,15 +46,22 @@ TEST DATA 2: [16, 6, 10, 5, 6, 1, 4]
 GOOD LUCK 😀
 */
 
-const calcAverageHumanAge = ages => {
-  const humanAge = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
-  const adults = humanAge.filter(age => age >= 18);
-  const average = adults.reduce(
-    (acc, age, _, arr) => acc + age / arr.length,
-    0
-  );
+// const calcAverageHumanAge = ages => {
+//   const humanAge = ages.map(age => (age <= 2 ? age * 2 : 16 + age * 4));
+//   const adults = humanAge.filter(age => age >= 18);
+//   const average = adults.reduce(
+//     (acc, age, _, arr) => acc + age / arr.length,
+//     0
+//   );
 
-  return average;
+//   return average;
+// };
+
+const calcAverageHumanAge = ages => {
+  return ages
+    .map(age => (age <= 2 ? age * 2 : 16 + age * 4))
+    .filter(age => age >= 18)
+    .reduce((acc, age, i, arr) => acc + age / arr.length, 0);
 };
 
 const avg1 = calcAverageHumanAge([5, 2, 4, 1, 15, 8, 3]);
