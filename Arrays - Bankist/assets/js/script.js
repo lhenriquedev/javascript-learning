@@ -61,4 +61,29 @@ const account4 = {
 const accounts = [account1, account2, account3, account4];
 
 /////////////////////////////////////////////////
+// BANKIST CODE
 /////////////////////////////////////////////////
+
+const displayMovements = movements => {
+  // clear container
+  containerMovements.innerHTML = '';
+
+  // loop array movements
+  movements.forEach((movement, i) => {
+    const type = movement > 0 ? 'deposit' : 'withdrawal';
+
+    // create html
+    const html = `
+      <div class="movements__row">
+        <div class="movements__type movements__type--${type}">${
+      i + 1
+    } ${type}</div> 
+        <div class="movements__value">${movement}</div>
+      </div>
+    `;
+
+    containerMovements.insertAdjacentHTML('afterbegin', html);
+  });
+};
+
+displayMovements(account1.movements);
