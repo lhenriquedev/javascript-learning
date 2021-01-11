@@ -39,4 +39,12 @@ for (const movement of movements) {
 //  ------------------------- REDUCE ------------------------------
 
 const balance = movements.reduce((acc, movement) => acc + movement, 0);
-console.log(balance);
+// console.log(balance);
+
+// Maximum value
+const max = movements.reduce((acc, movement) => {
+  if (acc > movement) return acc;
+  else return movement;
+}, movements[0]);
+
+// console.log(max);
