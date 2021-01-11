@@ -20,8 +20,23 @@ const movementsDescriptions = movements.map(
     } ${Math.abs(movement)}`
 );
 
-console.log(movementsDescriptions);
+// console.log(movementsDescriptions);
 
-// FILTER
+//  ------------------------- FILTER ------------------------------
+const deposits = movements.filter(movement => movement > 0);
+const withdrawals = movements.filter(movement => movement < 0);
 
-// REDUCE
+// FOR OF
+const depositFor = [];
+for (const movement of movements) {
+  if (movement > 0) {
+    depositFor.push(movement);
+  }
+}
+// console.log(deposits);
+// console.log(withdrawals);
+
+//  ------------------------- REDUCE ------------------------------
+
+const balance = movements.reduce((acc, movement) => acc + movement, 0);
+console.log(balance);

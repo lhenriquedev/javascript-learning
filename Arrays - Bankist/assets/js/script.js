@@ -87,3 +87,27 @@ const displayMovements = movements => {
 };
 
 displayMovements(account1.movements);
+
+const calcDisplayBalance = movements => {
+  const balance = movements.reduce((acc, movement) => acc + movement, 0);
+
+  labelBalance.textContent = `${balance} EUR`;
+};
+
+calcDisplayBalance(account1.movements);
+
+const createUsernames = accs => {
+  // loop array accounts
+  accs.forEach(acc => {
+    // create a property called: username
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+
+// console.log(accounts);
