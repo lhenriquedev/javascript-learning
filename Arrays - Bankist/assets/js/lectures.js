@@ -48,3 +48,16 @@ const max = movements.reduce((acc, movement) => {
 }, movements[0]);
 
 // console.log(max);
+
+//  ------------------------- CHAINING METHODS ------------------------------
+
+// PIPELINE
+const totalDepositsUSD = movements
+  .filter(movement => movement >= 0)
+  // .map((movement, i, arr) => {
+  //   return movement * eurToUsd;
+  // })
+  .map(movement => movement * eurToUsd)
+  .reduce((acc, movement) => acc + movement, 0);
+
+console.log(totalDepositsUSD);
