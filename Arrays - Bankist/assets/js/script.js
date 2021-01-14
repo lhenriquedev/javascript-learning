@@ -58,6 +58,7 @@ const account4 = {
   pin: 4444,
 };
 
+// array that contains all accounts
 const accounts = [account1, account2, account3, account4];
 
 /////////////////////////////////////////////////
@@ -86,31 +87,28 @@ const displayMovements = movements => {
   });
 };
 
-displayMovements(account1.movements);
-
 const calcDisplayBalance = movements => {
   const balance = movements.reduce((acc, movement) => acc + movement, 0);
 
   labelBalance.textContent = `${balance}€`;
 };
 
-calcDisplayBalance(account1.movements);
-
-const calcDisplaySummary = movements => {
+// access entire objects in accounts array
+const calcDisplaySummary = accs => {
   // deposit
-  const incomes = movements
+  const incomes = accs.movements
     .filter(mov => mov >= 0)
     .reduce((acc, mov) => acc + mov, 0);
 
   // withdrawls
-  const out = movements
+  const out = accs.movements
     .filter(mov => mov < 0)
     .reduce((acc, mov) => acc + mov, 0);
 
   // interest
-  const interest = movements
+  const interest = accs.movements
     .filter(mov => mov >= 0)
-    .map(deposit => (deposit * 1.2) / 100)
+    .map(deposit => (deposit * accs.interestRate) / 100)
     .filter(int => int >= 1)
     .reduce((acc, int) => acc + int, 0);
 
@@ -118,8 +116,8 @@ const calcDisplaySummary = movements => {
   labelSumOut.textContent = `${Math.abs(out)}€`;
   labelSumInterest.textContent = `${interest}€`;
 };
-calcDisplaySummary(account1.movements);
 
+// access entire objects in accounts array
 const createUsernames = accs => {
   // loop array accounts
   accs.forEach(acc => {
@@ -134,4 +132,35 @@ const createUsernames = accs => {
 
 createUsernames(accounts);
 
-// console.log(accounts);
+// ----------------------- EVENT HANDLERS ------------------- //
+
+// outside variable that contains the currenct account
+let currentAccount;
+btnLogin.addEventListener('click', e => {
+  e.preventDefault();
+
+  // find account and returns the object
+  currentAccount = accounts.find(
+    acc => acc.username === inputLoginUsername.value
+  );
+
+  // pin of current account has correct, then show
+  if (currentAccount?.pin === Number(inputLoginPin.value)) {
+    // 1) Display UI and Welcome message
+    labelWelcome.textContent = `Welcome back, ${
+      currentAccount.owner.split(' ')[0]
+    }`;
+    containerApp.style.opacity = 100;
+
+    // Clear input fields
+    inputLoginUsername.value = inputLoginPin.value = '';
+    inputLoginPin.blur();
+
+    // 2) Display Movements
+    displayMovements(currentAccount.movements);
+    // 3) Display Balance
+    calcDisplayBalance(currentAccount.movements);
+    // 4) Display Summary
+    calcDisplaySummary(currentAccount);
+  }
+});
