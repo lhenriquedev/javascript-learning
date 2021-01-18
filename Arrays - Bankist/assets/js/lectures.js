@@ -64,3 +64,64 @@ const totalDepositsUSD = movements
 
 //  ------------------------- FIND ------------------------------
 const firstWithdrawal = movements.find(mov => mov < 0);
+
+// Equality operator
+// console.log(movements);
+// console.log(movements.includes(-130));
+
+// Condition Some
+const anyDeposits = movements.some(mov => mov > 0);
+// console.log(anyDeposits);
+
+// Condition Every
+// console.log(movements.every(mov => mov > 0));
+
+// Separate callback
+const deposit = mov => mov > 0;
+
+// Flat and FlatMap
+
+const arr = [[1, 2, 3], [4, 5, 6], 7, 8];
+console.log(arr.flat());
+
+const arrDeep = [[[1, 2], 3], [4, [5, 6]], 7, 8];
+console.log(arrDeep.flat(2));
+
+// flat
+// const overalBalance = accounts
+//   .map(acc => acc.movements)
+//   .flat()
+//   .reduce((acc, mov) => acc + mov, 0);
+
+// // flatMap
+
+// const overalBalance2 = accounts
+//   .flatMap(acc => acc.movements)
+//   .reduce((acc, mov) => acc + mov, 0);
+
+//  ------------------------- SORT ------------------------------
+const owners = ['Jonas', 'Adam', 'Martha', 'Zach'];
+console.log(owners.sort());
+
+// return < 0, A, B (keep order)
+// return > 0, B, A (switch order)
+
+// Ascending
+// movements.sort((a, b) => {
+//   if (a > b) return 1;
+//   if (a < b) return -1;
+// });
+
+movements.sort((a, b) => a - b);
+
+console.log(movements);
+
+// Descending
+// movements.sort((a, b) => {
+//   if (a > b) return -1;
+//   if (a < b) return 1;
+// });
+
+movements.sort((a, b) => b - a);
+
+console.log(movements);

@@ -65,12 +65,15 @@ const accounts = [account1, account2, account3, account4];
 // BANKIST CODE
 /////////////////////////////////////////////////
 
-const displayMovements = movements => {
+const displayMovements = (movements, sort = false) => {
   // clear container
   containerMovements.innerHTML = '';
 
+  // SORT
+  const movs = sort ? movements.slice().sort((a, b) => a - b) : movements;
+
   // loop array movements
-  movements.forEach((movement, i) => {
+  movs.forEach((movement, i) => {
     const type = movement > 0 ? 'deposit' : 'withdrawal';
 
     // create html
@@ -195,6 +198,24 @@ btnTransfer.addEventListener('click', e => {
   }
 });
 
+btnLoan.addEventListener('click', e => {
+  e.preventDefault();
+
+  const amount = Number(inputLoanAmount.value);
+  const requestLoan = currentAccount.movements.some(mov => mov >= amount * 0.1);
+
+  if (amount > 0 && requestLoan) {
+    // Add movement
+    currentAccount.movements.push(amount);
+
+    // UpdateUI
+    updateUI(currentAccount);
+  }
+
+  inputLoanAmount.value = '';
+});
+
+// Button Close
 btnClose.addEventListener('click', e => {
   e.preventDefault();
 
@@ -213,4 +234,12 @@ btnClose.addEventListener('click', e => {
     containerApp.style.opacity = 0;
   }
   inputCloseUsername.value = inputClosePin.value = '';
+});
+
+let sorted = false;
+btnSort.addEventListener('click', e => {
+  e.preventDefault();
+
+  displayMovements(currentAccount.movements, !sorted);
+  sorted = !sorted;
 });
