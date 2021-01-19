@@ -125,3 +125,9 @@ console.log(movements);
 movements.sort((a, b) => b - a);
 
 console.log(movements);
+
+console.log([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+console.log(new Array(1, 2, 3, 4, 5, 650, 56));
+
+const x = new Array(7);
+console.log(x); // [empty x 7]
