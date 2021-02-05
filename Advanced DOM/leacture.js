@@ -1,4 +1,4 @@
-// Selecting elements 
+// Selecting elements
 
 /*
  document.querySelector();
@@ -9,6 +9,23 @@
 
 /*
   .insertAdjacentHTML();
-  document.createElement('div');
+  document.createElement('div');  
   
+*/
+
+/*
+  getComputedStyle();
+  setProperty();
+*/
+
+// Data Attributes
+const logo = document.querySelector(".nav__logo");
+// console.log(logo.dataset.createBy);
+
+// window scroll
+
+/*
+  window.scrollTo(sectionCoords.left + window.pageXOffSet,sectionCoords.top + window.pageYOffSet)
+
+
 */
