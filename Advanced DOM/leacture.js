@@ -29,3 +29,10 @@ const logo = document.querySelector(".nav__logo");
 
 
 */
+
+// Event Propagation in Practice
+const randomInt = (min, max) =>
+  Math.floor(Math.random() * (max - min + 1) + min);
+
+const randomColor = () =>
+  `${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)}`;
