@@ -20,6 +20,10 @@ const tabs = document.querySelectorAll(".operations__tab");
 const tabsContainer = document.querySelector(".operations__tab-container");
 const tabsContent = document.querySelectorAll(".operations__content");
 
+/* ----------------------------------------------------------------
+* Modal Window
+----------------------------------------------------------------
+*/
 const openModal = (e) => {
   e.preventDefault();
 
@@ -45,7 +49,10 @@ document.addEventListener("keydown", (e) => {
   }
 });
 
-// Cookie message
+/* ----------------------------------------------------------------
+ * Cookie message
+----------------------------------------------------------------
+*/
 const message = document.createElement("div");
 
 message.classList.add("cookie-message");
@@ -57,7 +64,10 @@ document.querySelector(".btn--close-cookie").addEventListener("click", (e) => {
   message.remove();
 });
 
-// Smooth Scrooling
+/* ----------------------------------------------------------------
+ * Smooth scrolling
+----------------------------------------------------------------
+*/
 btnScrollTo.addEventListener("click", (e) => {
   /* Old School
    window.scrollTo({
@@ -83,7 +93,7 @@ document.querySelector(".nav__links").addEventListener("click", (e) => {
 });
 
 /* ----------------------------------------------------------------
-TABBED CONTENT
+ * Tabbed Content
 ----------------------------------------------------------------
 */
 
