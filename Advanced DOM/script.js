@@ -12,7 +12,13 @@ const btnsOpenModal = document.querySelectorAll(".btn--show-modal");
 const btnCloseCookie = document.querySelector(".btn--close-cookie");
 const btnScrollTo = document.querySelector(".btn--scroll-to");
 
+const nav = document.querySelector(".nav");
+
 const sectionOne = document.querySelector("#section--1");
+
+const tabs = document.querySelectorAll(".operations__tab");
+const tabsContainer = document.querySelector(".operations__tab-container");
+const tabsContent = document.querySelectorAll(".operations__content");
 
 const openModal = (e) => {
   e.preventDefault();
@@ -81,10 +87,6 @@ TABBED CONTENT
 ----------------------------------------------------------------
 */
 
-const tabs = document.querySelectorAll(".operations__tab");
-const tabsContainer = document.querySelector(".operations__tab-container");
-const tabsContent = document.querySelectorAll(".operations__content");
-
 tabsContainer.addEventListener("click", (e) => {
   const clicked = e.target.closest(".operations__tab");
 
@@ -105,42 +107,59 @@ tabsContainer.addEventListener("click", (e) => {
     .classList.add("operations__content--active");
 });
 
-// ----------------- LECTURES ------------------ //
+// Menu fading animation
+const handlerHover = function (e) {
+  if (e.target.classList.contains("nav__link")) {
+    const link = e.target;
+    const siblings = link.closest(".nav").querySelectorAll(".nav__link");
+    const logo = link.closest(".nav").querySelector("img");
 
-// // Selecting elements
+    siblings.forEach((el) => {
+      if (el !== link) el.style.opacity = this;
+    });
+    logo.style.opacity = this;
+  }
+};
 
-// /*
-//  document.querySelector();
-//  document.querySelectorAll();
-// */
+nav.addEventListener("mouseover", handlerHover.bind(0.5));
+nav.addEventListener("mouseout", handlerHover.bind(1));
 
-// // Creating and inserting  elements
+/*
+----------------- LECTURES ------------------
 
-// /*
-//   .insertAdjacentHTML();
-//   document.createElement('div');
+// Selecting elements
 
-// */
 
-// /*
-//   getComputedStyle();
-//   setProperty();
-// */
+ document.querySelector();
+ document.querySelectorAll();
 
-// // Data Attributes
+
+// Creating and inserting  elements
+
+
+  insertAdjacentHTML();
+  document.createElement('div');
+
+
+  getComputedStyle();
+  setProperty();
+
+
+// Data Attributes
 // const logo = document.querySelector(".nav__logo");
-// // console.log(logo.dataset.createBy);
+// console.log(logo.dataset.createBy);
 
-// // window scroll
+// window scroll
 
-// /*
-//   window.scrollTo(sectionCoords.left + window.pageXOffSet,sectionCoords.top + window.pageYOffSet)
+  window.scrollTo(sectionCoords.left + window.pageXOffSet,sectionCoords.top + window.pageYOffSet)
 
-// */
 
-// // Event Propagation in Practice
+
+// Event Propagation in Practice
 // const randomInt = (min, max) =>
 //   Math.floor(Math.random() * (max - min + 1) + min);
 
 // const randomColor = () =>
 //   `${randomInt(0, 255)},${randomInt(0, 255)},${randomInt(0, 255)}`;
+
+*/
