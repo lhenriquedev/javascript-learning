@@ -53,16 +53,16 @@ document.addEventListener("keydown", (e) => {
  * Cookie message
 ----------------------------------------------------------------
 */
-const message = document.createElement("div");
+// const message = document.createElement("div");
 
-message.classList.add("cookie-message");
-message.innerHTML = `We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>`;
+// message.classList.add("cookie-message");
+// message.innerHTML = `We use cookies for improved functionality and analytics. <button class="btn btn--close-cookie">Got it!</button>`;
 
-header.appendChild(message);
+// header.appendChild(message);
 
-document.querySelector(".btn--close-cookie").addEventListener("click", (e) => {
-  message.remove();
-});
+// document.querySelector(".btn--close-cookie").addEventListener("click", (e) => {
+//   message.remove();
+// });
 
 /* ----------------------------------------------------------------
  * Smooth scrolling
@@ -168,6 +168,32 @@ const headerObserver = new IntersectionObserver(stickyNav, {
 });
 
 headerObserver.observe(header);
+
+/* ----------------------------------------------------------------
+ * Reveal Section
+----------------------------------------------------------------
+*/
+
+const allSections = document.querySelectorAll(".section");
+
+const revealSection = (entries, observer) => {
+  const [entry] = entries;
+  console.log(entry);
+  // Guard cause
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove("section--hidden");
+  observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach((section) => {
+  sectionObserver.observe(section);
+  section.classList.add("section--hidden");
+});
 
 /*
 ----------------- LECTURES ------------------
