@@ -169,14 +169,13 @@ btn.addEventListener('click', function () {
 // getCountryData('fdsafdsdsf');
 
 const whereAmI = (lat, lng) => {
+  // Fetching the geolocation API
   return fetch(`https://geocode.xyz/${lat},${lng}?geoit=json`)
     .then(res => {
       if (!res.ok) throw new Error(`There was too request. ${res.status}`);
       return res.json();
     })
     .then(data => {
-      console.log(`You are in ${data.city}, ${data.country}`);
-
       return fetch(`https://restcountries.eu/rest/v2/name/${data.country}`);
     })
     .then(res => {
