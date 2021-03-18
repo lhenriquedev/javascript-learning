@@ -293,6 +293,31 @@ const createImage = imagePath => {
 
 let currentImg;
 
+const loadNPause = async () => {
+  try {
+    let img = await createImage('img/img-1.jpg');
+    console.log('Image 1 loaded');
+    await wait(2);
+    img.style.display = 'none';
+
+    let img2 = await createImage('img/img-2.jpg');
+    console.log('Image 2 loaded');
+    await wait(2);
+    img2.style.display = 'none';
+  } catch (error) {}
+};
+/* loadNPause(); */
+const loadAll = async imgsArr => {
+  try {
+    const imgs = imgsArr.map(async img => await createImage(img));
+
+    const imgsEl = await Promise.all(imgs);
+    imgsEl.forEach(img => img.classList.add('parallel'));
+  } catch (error) {}
+};
+
+loadAll(['img/img-1.jpg', 'img/img-2.jpg', 'img/img-3.jpg']);
+
 /* 
 createImage('img/img-1.jpg')
   .then(img => {
@@ -406,4 +431,15 @@ const get3Countries = async (c1, c2, c3) => {
   }
 };
 
-get3Countries('brazil', 'germany', 'netherlands');
+// get3Countries('brazil', 'germany', 'netherlands');
+
+// Promise.race
+(async () => {
+  const res = await Promise.race([
+    getJSON(`https://restcountries.eu/rest/v2/name/italy`),
+    getJSON(`https://restcountries.eu/rest/v2/name/brazil`),
+    getJSON(`https://restcountries.eu/rest/v2/name/germany`),
+  ]);
+  /*   console.log(res[0]);
+   */
+})();
