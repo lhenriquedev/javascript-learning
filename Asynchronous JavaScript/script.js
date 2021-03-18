@@ -266,12 +266,14 @@ const whereAmI = () => {
 
 btn.addEventListener('click', whereAmI);
 
+// Função que cria uma promise
 const wait = seconds => {
   return new Promise(resolve => setTimeout(resolve, seconds * 1000));
 };
 
 const imageContainer = document.querySelector('.images');
 
+// Função que cria uma promise e retorna uma imagem.
 const createImage = imagePath => {
   return new Promise((resolve, reject) => {
     const img = document.createElement('img');
